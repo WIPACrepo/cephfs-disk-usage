@@ -1,0 +1,17 @@
+cachetools==5.3.1
+certifi==2023.7.22
+cffi==1.15.1
+charset-normalizer==3.2.0
+cryptography==41.0.3
+idna==3.4
+pycparser==2.21
+PyJWT==2.8.0
+pypng==0.20220715.0
+qrcode==7.4.2
+requests==2.31.0
+requests-futures==1.0.1
+tornado==6.3.3
+typing_extensions==4.7.1
+urllib3==2.0.4
+wipac-dev-tools==1.6.16
+wipac-rest-tools==1.5.2

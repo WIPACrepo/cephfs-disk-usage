@@ -6,6 +6,8 @@ WORKDIR /home/app
 
 COPY --chown=1000:1000 . cephfs-disk-usage
 
-RUN pip install --no-cache-dir -e cephfs-disk-usage
+WORKDIR /home/app/cephfs-disk-usage
+
+RUN pip install --no-cache-dir -e .
 
 CMD ["python", "-m", "cephfs_disk_usage"]

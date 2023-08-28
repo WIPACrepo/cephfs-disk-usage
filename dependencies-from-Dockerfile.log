@@ -1,5 +1,4 @@
 cachetools==5.3.1
--e git+https://github.com/WIPACrepo/cephfs-disk-usage@f4a827c77d07d859c89a28d2ab811d5ded069389#egg=cephfs_disk_usage
 certifi==2023.7.22
 cffi==1.15.1
 charset-normalizer==3.2.0

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{% block title %}{% end %}Disk Usage</title>
+<meta name="desciption" content="{% block title %}{% end %} - CephFS Disk Usage">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="/static/favicon.png">
+<link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
+<link rel="stylesheet" href="/static/boilerplate.css?v=7.3.0">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<!--[if IE]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+<div id="page-container">
+<header>
+  <h1><a href="/" rel="home"><img class="logo" src="/static/icecube-logo_60.png" alt="IceCube" width="228" height="60" /></a></h1>
+</header>
+<main>{% block main %}{% end %}</main>
+<footer>
+  <p class="help">For help, email help at icecube.wisc.edu</p>
+  <p class="copyright">© WIPAC, University of Wisconsin-Madison</p>
+</footer>
+</div>
+<script src="/static/boilerplate.js"></script>
+{% block scripts %}{% end %}
+</body>
+</html>

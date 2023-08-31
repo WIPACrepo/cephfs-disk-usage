@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Disk Usage Browser</h1>
+<article class="details">
+<h3>Path: {{ data.path }}</h3>
+{% module Template('piechart.html', data=data) %}
+{% module Template('table.html', data=data, up=True) %}
+</article>
+{% end %}
+
+{% block scripts %}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+{% module Template('piechart.js', data=data) %}
+{% end %}

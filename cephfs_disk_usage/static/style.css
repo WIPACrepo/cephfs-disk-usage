@@ -1,0 +1,84 @@
+#page-container {
+    margin: 1em;
+}
+
+section.action article {
+    margin: .5em;
+}
+article div.text, article div.select {
+    margin: .5em 0;
+    display: flex;
+    align-items: center;
+}
+article span.label {
+    margin-right: 0.5em;
+}
+article div.select div.selectize-control, article select {
+    width: 100%;
+}
+article div.text, article div.select {
+    margin: .5em 0;
+    display: flex;
+    align-items: center;
+}
+article>div {
+    margin: 1em 1em;
+}
+article div.entry {
+    display: flex;
+    margin: .5em 0;
+}
+article div.entry div {
+    display: inline-block;
+    margin-left: .5em;
+}
+article div.entry div.name {
+    width: 20em;
+}
+article div.entry div.type {
+    width: 7em;
+}
+article div.entry div.value {
+    width: 7em;
+    text-align: right;
+}
+article div.entry div.graph {
+    width: 7em;
+    text-align: right;
+    margin-right: 1em;
+    position: relative;
+}
+article div.entry div.graph .text, article div.entry div.graph .text_small {
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    z-index: 1;
+}
+article div.entry div.graph .text {
+    right: 0;
+    color: white;
+}
+article div.entry div.graph .fill {
+    background-color: green;
+    margin:0;
+    padding:0;
+    height: 100%;
+    z-index: 0;
+}
+article div.header {
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 2em;
+}
+
+div.articles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+article.main {
+    max-width: 49%;
+    min-width: 29em;
+}

@@ -1,0 +1,31 @@
+<div class="grid">
+    {% if up %}
+    <a href="{{ os.path.dirname(data.path) }}">&lt;&lt; Up</a><div>
+    {% end %}
+    <div class="entry header">
+        <div class="name">Name</div>
+        {% if up %}<div class="type">Type</div>{% end %}
+        <div class="value">Size (GB)</div>
+        {% if up %}<div class="graph">Size %</div>{% end %}
+    </div>
+    {% for row in data.children %}
+        <div class="entry">
+            <div class="name">{% if row.is_dir %}<a href="{{ row.path }}">{{ row.name }}</a>{% else %}{{ row.name }}{% end %}</div>
+            {% if up %}<div class="type">{% if row.is_dir %}dir{% elif row.is_link %}link{% else %}file{% end %}</div>{% end %}
+            <div class="value">{{ '{:.2f}'.format(row.size/10**9) }}</div>
+            {% if up %}<div class="graph">
+            {% if row.percent_size < 20 %}
+                <div class="text_small" style="right:{{ row.percent_size+5 }}%">{{ '{:.2f}'.format(row.percent_size) }}</div>
+            {% else %}
+                <div class="text">{{ '{:.2f}'.format(row.percent_size) }}</div>
+            {% end %}
+                <div class="fill" style="width: {{ row.percent_size }}%"></div>
+            </div>{% end %}
+        </div>
+    {% end %}
+    <div class="entry header" style="margin-top: 1em">
+        <div class="name">Total</div>
+        {% if up %}<div class="type"></div>{% end %}
+        <div class="value">{{ '{:.2f}'.format(data.size/10**9) }}</div>
+    </div>
+</div>

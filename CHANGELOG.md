@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.0.3 (2023-08-31)
+
+### Other
+
+* Decode bytes to str ([`80763ec`](https://github.com/WIPACrepo/cephfs-disk-usage/commit/80763ecfc76cac4be9f39d9fc24d938cfa1a322b))
+
 ## v0.0.2 (2023-08-31)
 
 ### Other

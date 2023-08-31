@@ -75,6 +75,8 @@ async def call(*args, shell=False):
     out,err = await ret.communicate()
     if ret.returncode:
         raise Exception(f'call failed: return code {ret.returncode}')
+    if not shell:
+        out = out.decode('utf-8')
     return out
 
 

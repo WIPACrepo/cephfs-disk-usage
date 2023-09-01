@@ -152,7 +152,14 @@ class POSIXFileSystem:
 
         ret = DirEntry.from_entry(await self._get_meta(fullpath))
         for task in tasks:
-            r = await task
+            try:
+                r = await task
+            except FileNotFoundError:
+                logger.debug('error', exc_info=True)
+                continue
+            except Exception:
+                logger.warning('error', exc_info=True)
+                continue
             r.percent_size = r.size*100.0/ret.size
             ret.children.append(r)
         ret.children.sort(key=lambda r: r.name)

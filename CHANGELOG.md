@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.0.4 (2023-09-01)
+
+### Other
+
+* Better error handling when children fail ([`dbf1931`](https://github.com/WIPACrepo/cephfs-disk-usage/commit/dbf1931fccb60e26485dcd89fce18ff23143e9db))
+
 ## v0.0.3 (2023-08-31)
 
 ### Other

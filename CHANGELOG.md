@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.0.5 (2023-09-01)
+
+### Other
+
+* Fix flake8 error ([`eeff664`](https://github.com/WIPACrepo/cephfs-disk-usage/commit/eeff664198a87fa5b0c8957f9e6e46b701258ec1))
+* Handle errors a little better ([`8c165cb`](https://github.com/WIPACrepo/cephfs-disk-usage/commit/8c165cbb7de5e89f95e647d1d56098a5834f8c50))
+
 ## v0.0.4 (2023-09-01)
 
 ### Other

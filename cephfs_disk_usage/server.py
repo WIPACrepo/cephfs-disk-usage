@@ -9,6 +9,7 @@ import logging
 import os
 from pathlib import Path
 import stat
+import time
 from typing import Self
 
 from tornado.web import RequestHandler, HTTPError
@@ -44,6 +45,8 @@ class Health(BaseHandler):
         ret = {}
         for k in self.filesystems:
             ret[k] = await self.filesystems[k].status()
+        if any(r != 'OK' for r in ret.values()):
+            self.set_status(500)
         self.write(ret)
 
 
@@ -62,7 +65,7 @@ class Details(BaseHandler):
                 data = await self.filesystems[fs].dir_entry(path[len(fs):])
                 break
         else:
-            raise HTTPError(400, 'bad path')
+            raise HTTPError(400, reason='bad path')
 
         self.render('details.html', path=path, data=data)
 
@@ -145,23 +148,27 @@ class POSIXFileSystem:
         if not fullpath.is_dir():
             raise Exception('not a directory!')
 
-        tasks = []
-        async with asyncio.TaskGroup() as tg:
-            for child in fullpath.iterdir():
-                tasks.append(tg.create_task(self._get_meta(child)))
+        tasks = set()
+        for child in fullpath.iterdir():
+            tasks.add(tg.create_task(self._get_meta(child)))
 
         ret = DirEntry.from_entry(await self._get_meta(fullpath))
-        for task in tasks:
-            try:
-                r = await task
-            except FileNotFoundError:
-                logger.debug('error', exc_info=True)
-                continue
-            except Exception:
-                logger.warning('error', exc_info=True)
-                continue
-            r.percent_size = r.size*100.0/ret.size
-            ret.children.append(r)
+        start_time = time.time()
+        while tasks:
+            if time.time() - start_time > 60:
+                raise HTTPError(500, reason='Request timed out')
+            done, tasks = await asyncio.wait(tasks, timeout=5)
+            for task in done:
+                try:
+                    r = await task
+                except FileNotFoundError:
+                    logger.debug('error', exc_info=True)
+                    continue
+                except Exception:
+                    logger.warning('error', exc_info=True)
+                    continue
+                r.percent_size = r.size*100.0/ret.size
+                ret.children.append(r)
         ret.children.sort(key=lambda r: r.name)
 
         return ret

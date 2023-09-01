@@ -150,7 +150,7 @@ class POSIXFileSystem:
 
         tasks = set()
         for child in fullpath.iterdir():
-            tasks.add(tg.create_task(self._get_meta(child)))
+            tasks.add(asyncio.create_task(self._get_meta(child)))
 
         ret = DirEntry.from_entry(await self._get_meta(fullpath))
         start_time = time.time()

@@ -108,7 +108,7 @@ class DirEntry:
             raise Exception('is not a directory!')
         return cls(e.name, e.path, e.size, e.nfiles, [])
 
-    def child_summary(self, threshold=5) -> list[Entry]:
+    def child_summary(self, threshold: float = .5) -> list[Entry]:
         """
         Summarize children
 

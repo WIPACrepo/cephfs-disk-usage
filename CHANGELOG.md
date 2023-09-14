@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.0.7 (2023-09-14)
+
+### Other
+
+* Adjust summary threshold ([`d649971`](https://github.com/WIPACrepo/cephfs-disk-usage/commit/d6499712dae4d921960a51786e8c0e4e95078852))
+
 ## v0.0.6 (2023-09-14)
 
 ### Other

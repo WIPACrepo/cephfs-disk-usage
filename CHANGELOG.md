@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.0.6 (2023-09-14)
+
+### Other
+
+* Plotly donut plots ([#3](https://github.com/WIPACrepo/cephfs-disk-usage/issues/3)) ([`8615b71`](https://github.com/WIPACrepo/cephfs-disk-usage/commit/8615b7100a1237d337c574a61833fb479a7cf37c))
+
 ## v0.0.5 (2023-09-01)
 
 ### Other

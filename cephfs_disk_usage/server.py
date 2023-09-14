@@ -100,13 +100,31 @@ class DirEntry:
     path: str
     size: int
     nfiles: int
-    children: list
+    children: list[Entry]
 
     @classmethod
     def from_entry(cls, e: Entry) -> Self:
         if not e.is_dir:
             raise Exception('is not a directory!')
         return cls(e.name, e.path, e.size, e.nfiles, [])
+
+    def child_summary(self, threshold=5) -> list[Entry]:
+        """
+        Summarize children
+
+        Args:
+            threshold: in percent (0-100)
+        """
+        ret = []
+        other = 0
+        for child in self.children:
+            if child.percent_size < threshold:
+                other += child.size
+            else:
+                ret.append(child)
+        if other:
+            ret.append(Entry("Other", "", other, percent_size=other*100.0/self.size))
+        return ret
 
 
 class POSIXFileSystem:

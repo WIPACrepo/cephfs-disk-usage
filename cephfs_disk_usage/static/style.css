@@ -73,6 +73,13 @@ footer {
     margin-top: 2em;
 }
 
+div.piechart {
+    max-width: 43em;
+}
+article.main div.piechart {
+    max-width: 35em;
+}
+
 div.articles {
     display: flex;
     flex-wrap: wrap;

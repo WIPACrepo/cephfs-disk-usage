@@ -237,6 +237,8 @@ class Server:
             }
         else:
             kwargs['filesystems'] = {
+                '/data/sim': CephFileSystem('/data/sim'),
+                '/data/exp': CephFileSystem('/data/exp'),
                 '/data/ana': CephFileSystem('/data/ana'),
                 '/data/user': CephFileSystem('/data/user'),
             }

@@ -79,6 +79,7 @@ jobs:
     permissions:
       id-token: write
       contents: write
+      packages: write
 
     steps:
       # Note: we need to checkout the repository at the workflow sha in case during the workflow
@@ -115,7 +116,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            ghcr.io/WIPACRepo/cephfs-disk-usage
+            ghcr.io/wipacrepo/cephfs-disk-usage
           tags: |
             type=semver,pattern={{major}},value=${{ steps.release.outputs.tag }}
             type=semver,pattern={{major}}.{{minor}},value=${{ steps.release.outputs.tag }}

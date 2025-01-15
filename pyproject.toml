@@ -13,4 +13,4 @@ tests = [
 ]
 
 [tool.pytest.ini_options]
-async = auto
+async = "auto"

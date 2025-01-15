@@ -1,6 +1,8 @@
 [project]
-version = 0.0.7
-dependencies = ["wipac-rest-tools"]
+version = "0.0.7"
+dependencies = [
+    "wipac-rest-tools",
+]
 
 [project.optional-dependencies]
 tests = [

@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.0.9 (2025-01-15)
+
+### U
+
+- Update docker image building
+  ([`42aeeec`](https://github.com/WIPACrepo/cephfs-disk-usage/commit/42aeeec25f40846f9f94469d53465a0d6aee4cf8))
+
+
 ## v0.0.8 (2025-01-15)
 
 ### A

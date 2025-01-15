@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.0.11 (2025-01-15)
+
+### N
+
+- Need packages write permissions
+  ([`84ec5d1`](https://github.com/WIPACrepo/cephfs-disk-usage/commit/84ec5d14e05d1bf5f19b646cf91ca6ed3fdf0302))
+
+
 ## v0.0.10 (2025-01-15)
 
 ### A

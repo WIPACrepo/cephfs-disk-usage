@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-version = "0.0.7"
+version = "0.0.8"
 dependencies = ["wipac-rest-tools"]
 name = "cephfs-disk-usage"
 requires-python = ">=3.11, <3.14"

@@ -1,0 +1,14 @@
+[project]
+version = 0.0.7
+dependencies = ["wipac-rest-tools"]
+
+[project.optional-dependencies]
+tests = [
+    "flake8",
+    "pytest",
+    "pytest-asyncio",
+    "pytest-mock",
+]
+
+[tool.pytest.ini_options]
+async = auto

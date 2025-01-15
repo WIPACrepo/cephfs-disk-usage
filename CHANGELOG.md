@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.0.10 (2025-01-15)
+
+### A
+
+- Actually push the image we built
+  ([`6254615`](https://github.com/WIPACrepo/cephfs-disk-usage/commit/625461566ea3bcd7cadd778264da44080c415dd6))
+
+
 ## v0.0.9 (2025-01-15)
 
 ### U

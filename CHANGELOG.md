@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.0.12 (2025-04-09)
+
+### A
+
+- Add json api for disk usage
+  ([`444646c`](https://github.com/WIPACrepo/cephfs-disk-usage/commit/444646c34e953c23bff6c2222e2304a2f8aab8b5))
+
+
 ## v0.0.11 (2025-01-15)
 
 ### N

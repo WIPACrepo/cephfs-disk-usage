@@ -10,7 +10,7 @@ import os
 from pathlib import Path
 import stat
 import time
-from typing import Self
+from typing import Self, Any
 
 from tornado.web import RequestHandler, HTTPError
 from rest_tools.server import RestServer
@@ -70,6 +70,17 @@ class Details(BaseHandler):
         self.render('details.html', path=path, data=data)
 
 
+class API(BaseHandler):
+    async def get(self, path):
+        for fs in self.filesystems:
+            if path.startswith(fs):
+                data = await self.filesystems[fs].dir_entry(path[len(fs):])
+                break
+        else:
+            raise HTTPError(400, reason='bad path')
+        self.write(data.to_dict())
+
+
 async def call(*args, shell=False):
     if shell:
         ret = await asyncio.create_subprocess_shell(' '.join(args), stdout=asyncio.subprocess.PIPE)
@@ -107,6 +118,11 @@ class DirEntry:
         if not e.is_dir:
             raise Exception('is not a directory!')
         return cls(e.name, e.path, e.size, e.nfiles, [])
+
+    def to_dict(self) -> dict[str, Any]:
+        ret = vars(self)
+        ret['children'] = [vars(c) for c in self.children]
+        return ret
 
     def child_summary(self, threshold: float = .5) -> list[Entry]:
         """
@@ -256,6 +272,7 @@ class Server:
             server.add_route(cwd, Main, kwargs)
         else:
             server.add_route('/data', Main, kwargs)
+        server.add_route(r'/api(.*)', API, kwargs)
         server.add_route('/healthz', Health, kwargs)
         server.add_route(r'(.*)', Details, kwargs)
 
